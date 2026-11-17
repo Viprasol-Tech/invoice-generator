@@ -59,7 +59,9 @@ invoice = Invoice(
     seller=Party(name="Viprasol Tech"),
     buyer=Party(name="Acme Corp"),
     items=[
-        LineItem(description="Backend development", quantity=Decimal("40"), unit_price=Decimal("75.00")),
+        LineItem(
+            description="Backend development", quantity=Decimal("40"), unit_price=Decimal("75.00")
+        ),
         LineItem(
             description="Frontend development",
             quantity=Decimal("24"),
@@ -72,7 +74,7 @@ invoice = Invoice(
 )
 
 totals = compute_totals(invoice)
-print(totals.grand_total)   # Decimal('5461.04')  — exact, no float drift
+print(totals.grand_total)  # Decimal('5461.04')  — exact, no float drift
 print(render_text(invoice))
 ```
 
